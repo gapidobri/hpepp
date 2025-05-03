@@ -1,14 +1,14 @@
-FROM --platform=linux/amd64 alpine:3.18
+FROM alpine:3.18
 
 RUN apk add gcompat libstdc++ libusb-compat
 
-COPY ./hpepp-linux-1_06_069-amd64 .
-COPY ./start.sh .
+COPY ./hpepp-linux-2_06_098-amd64 ./start.sh .
 
-RUN ./hpepp-linux-1_06_069-amd64 -silent
+RUN ./hpepp-linux-2_06_098-amd64 -silent
 
 VOLUME [ "/usr/local/HPE/PowerProtector" ]
 
 EXPOSE 4679
+EXPOSE 4680
 
 CMD [ "./start.sh" ]
